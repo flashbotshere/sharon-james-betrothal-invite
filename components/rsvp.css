@@ -1,0 +1,84 @@
+/* RSVP section — uses the color variables from app/globals.css */
+.rsvp-card {
+  position: relative; text-align: left;
+  background: #fff; border: 1px solid var(--line-soft); border-radius: 22px;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 5vw, 48px);
+  max-width: 580px; margin: 0 auto;
+  box-shadow: 0 30px 60px -40px rgba(60, 40, 20, 0.35);
+}
+.rsvp-card::before {
+  content: ''; position: absolute; inset: 9px;
+  border: 1px solid var(--line-soft); border-radius: 15px; pointer-events: none;
+}
+
+.rsvp-field { display: grid; gap: 8px; margin: 0 0 22px; padding: 0; border: 0; min-width: 0; }
+.rsvp-field legend { padding: 0; margin-bottom: 8px; }
+.rsvp-field input[type='text'],
+.rsvp-field textarea {
+  width: 100%; font: inherit; font-size: 16px; /* 16px stops iOS zooming in */
+  color: var(--ink); background: var(--tint);
+  border: 1px solid var(--line-soft); border-radius: 10px; padding: 13px 15px;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  -webkit-appearance: none; appearance: none;
+}
+.rsvp-field textarea { resize: vertical; min-height: 96px; }
+.rsvp-field input[type='text']:focus,
+.rsvp-field textarea:focus {
+  outline: none; background: #fff;
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 134, 79, 0.16);
+}
+
+.rsvp-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rsvp-choice {
+  position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 14px 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  font-family: var(--font-serif), serif; font-size: 1.15rem; color: var(--ink);
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.rsvp-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.rsvp-choice:hover { border-color: var(--gold); }
+.rsvp-choice:focus-within { box-shadow: 0 0 0 3px rgba(168, 134, 79, 0.22); }
+.rsvp-choice.is-active { border-color: var(--maroon); background: rgba(122, 31, 43, 0.06); color: var(--maroon); }
+
+.rsvp-stepper { display: inline-flex; align-items: center; gap: 18px; justify-self: start; }
+.rsvp-stepper button {
+  width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 1.3rem; line-height: 1;
+  transition: border-color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.rsvp-stepper button:hover:not(:disabled) { border-color: var(--gold); }
+.rsvp-stepper button:disabled { opacity: 0.35; cursor: not-allowed; }
+.rsvp-stepper span {
+  font-family: var(--font-serif), serif; font-size: 1.6rem; color: var(--ink);
+  min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums;
+}
+
+.rsvp-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.rsvp-deadline {
+  text-align: center; margin-bottom: 22px;
+  font-family: var(--font-serif), serif; font-style: italic; color: var(--muted); font-size: 1.05rem;
+}
+.rsvp-error { color: var(--maroon); font-size: 0.9rem; margin: -6px 0 16px; }
+.rsvp-submit { width: 100%; }
+.rsvp-submit:disabled { opacity: 0.6; cursor: wait; }
+
+.rsvp-thanks, .rsvp-closed { text-align: center; }
+.rsvp-thanks-title { display: block; font-size: clamp(2.2rem, 7vw, 3.2rem); line-height: 1.2; color: var(--ink); }
+.rsvp-thanks p, .rsvp-closed {
+  font-family: var(--font-serif), serif; font-size: 1.15rem; color: var(--muted); margin-top: 0.6rem;
+}
+.rsvp-link {
+  margin-top: 1.4rem; background: none; border: 0; cursor: pointer;
+  color: var(--gold); text-decoration: underline; text-underline-offset: 3px;
+  font-size: 0.85rem; letter-spacing: 0.06em;
+}
+
+@media (max-width: 600px) {
+  .rsvp-card { border-radius: 16px; padding: 26px 18px; }
+  .rsvp-card::before { inset: 6px; border-radius: 11px; }
+  .rsvp-field { margin-bottom: 18px; }
+  .rsvp-choices { grid-template-columns: 1fr; }
+  .rsvp-choice { padding: 13px 12px; font-size: 1.1rem; }
+}

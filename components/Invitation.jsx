@@ -1,4 +1,5 @@
 'use client';
+import Rsvp from '@/components/Rsvp';
 import { useEffect, useRef, useState } from 'react';
 import { invite } from '@/lib/config';
 import Envelope from './Envelope';
@@ -150,7 +151,7 @@ export default function Invitation() {
                 )}
                 <div className="ei-actions">
                   <AddToCalendar />
-                  <a href="#location" className="btn btn-outline">View Location</a>
+                  <a href="#rsvp" className="btn btn-outline">Your RSVP</a>
                 </div>
               </div>
             </Reveal>
@@ -190,6 +191,9 @@ export default function Invitation() {
         </section>
 
         {/* ---------- FOOTER ---------- */}
+        {/* RSVP */}
+        <Rsvp />
+
         <footer className="footer">
           <Reveal>
             <p className="eyebrow">We look forward to celebrating with you</p>
