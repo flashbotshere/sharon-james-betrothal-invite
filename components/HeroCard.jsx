@@ -83,11 +83,8 @@ export default function HeroCard({ live = false, height = CARD_H }) {
       <div className="hero-fade" />
       <Fringe />
       <div className="hero-text">
-        <p className="hero-kicker">join us for<br />the betrothal of</p>
+        <p className="hero-kicker">Betrothal of</p>
         <Names className="hero-names">{groom.first} &amp; {bride.first}</Names>
-        <p className="hero-date">{event.dateText}</p>
-        <p className="hero-venue">{venue.name}</p>
-        <p className="hero-place">{venue.city || venue.address}</p>
       </div>
     </div>
   );

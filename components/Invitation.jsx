@@ -158,14 +158,6 @@ export default function Invitation() {
           </div>
         </section>
 
-        {/* ---------- COUNTDOWN ---------- */}
-        <section className="section dark" id="countdown">
-          <div className="container narrow">
-            <Heading eyebrow="Counting down" title="Until the big day" />
-            <Reveal delay={100}><Countdown target={event.start} /></Reveal>
-          </div>
-        </section>
-
         {/* ---------- LOCATION ---------- */}
         <section className="section" id="location">
           <div className="container">
@@ -174,7 +166,8 @@ export default function Invitation() {
           </div>
         </section>
 
-        {/* ---------- GALLERY ---------- */}
+        {/* ---------- GALLERY (hidden for now) ---------- */}
+        {/*
         <section className="section tint" id="gallery">
           <div className="container wide">
             <div className="gallery-head">
@@ -189,10 +182,20 @@ export default function Invitation() {
             <Gallery images={images.gallery} />
           </div>
         </section>
+        */}
+
+        {/* ---------- RSVP ---------- */}
+        <Rsvp />
+
+        {/* ---------- COUNTDOWN ---------- */}
+        <section className="section dark" id="countdown">
+          <div className="container narrow">
+            <Heading eyebrow="Counting down" title="Until the big day" />
+            <Reveal delay={100}><Countdown target={event.start} /></Reveal>
+          </div>
+        </section>
 
         {/* ---------- FOOTER ---------- */}
-        {/* RSVP */}
-        <Rsvp />
 
         <footer className="footer">
           <Reveal>
